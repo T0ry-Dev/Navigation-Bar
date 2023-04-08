@@ -1,0 +1,127 @@
+/* Global Styling */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html { 
+    background: url(img/background-image.jpg); /* UR BACKGROUND IMAGE HERE */
+    font-size: 10px;
+    overflow-x: hidden;
+    font-family: 'Monsterrat', sans-serif;
+}
+
+/* Navigation Bar Styling */
+
+.logo {
+    width: 6.5em;
+    border-radius: 50%;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    padding: 2em;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    width: 55%;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: bold;
+    position: relative;
+    padding: .2em;
+    color: white;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    background: radial-gradient(black, white);
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: .15em;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* More Options Styling */
+
+.show-more {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+
+.line {
+    width: 3rem;
+    height: .3rem;
+    background-color: white;
+    margin: .7rem;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+}
+
+/* Show More Options */
+
+@media only screen and (max-width: 1000px) {
+    .show-more {
+        display: block;
+        transition: .3s ease-in-out;
+    }
+
+    .show-more.active .line:first-child {
+        transform: translateY(-300px);
+    }
+
+    .show-more.active .line:nth-child(2) {
+        transform: rotate(-405deg) translateY(7px);
+    }
+    
+    .show-more.active .line:nth-child(3) {
+        transform: rotate(405deg) translateY(-6px);
+    }
+
+    ul {
+        position: absolute;
+        right: 0;
+        top: 8vh;
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 30vh;
+        height: 60vh;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 0 0 20px 20px;
+        transform: translate(100%);
+        transition: .3s ease-in-out;
+    }
+
+    ul.active {
+        transform: translate(0%);
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    ul {
+        width: 100%;
+    }
+}
